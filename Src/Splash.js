@@ -37,17 +37,18 @@ const Splash = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
   },
   image: {
-    width: 250,
+    width: 300,
     height: 300,
     marginBottom: 55,
-    borderWidth:1,
+    borderWidth:0.3,
     borderRadius: 250,
+    borderColor:'#F0224E',
   },
   title: {
     fontSize: 24,
