@@ -9,13 +9,13 @@ const Splash = () => {
     navigation.navigate('Login');
   };
 
-  const handleSignup = () => {
-    navigation.navigate('Signup');
+  const handleSignUp = () => {
+    navigation.navigate('SignUp');
   };
 
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={require('./Assets/MedCanDetectLogo.png')} />
+      <Image style={styles.image} source={require('./Assets/logo.png')} />
       <Text style={styles.title}>Welcome to MedCanDetect</Text>
       <Text style={styles.subtitle}></Text>
       <Text style={styles.message}>
@@ -26,8 +26,8 @@ const Splash = () => {
         <TouchableOpacity style={styles.button} onPress={handleLogin}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={handleSignup}>
-          <Text style={styles.buttonText}>Signup</Text>
+        <TouchableOpacity style={styles.button} onPress={handleSignUp}>
+          <Text style={styles.buttonText}>SignUp</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -37,15 +37,17 @@ const Splash = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
   },
   image: {
-    width: 300,
-    height: 350,
+    width: 250,
+    height: 300,
     marginBottom: 55,
+    borderWidth:1,
+    borderRadius: 250,
   },
   title: {
     fontSize: 24,
