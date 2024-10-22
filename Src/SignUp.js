@@ -10,13 +10,14 @@ export default function Example() {
     password: '',
     confirmPassword: '',
   });
+
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#e8ecf4' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#000' }}>
       <KeyboardAwareScrollView style={styles.container}>
         <View style={styles.header}>
           <View style={styles.headerBack}>
             <FeatherIcon
-              color="#1D2A32"
+              color="#fff" // Make icon white for contrast on black background
               name="chevron-left"
               size={30} />
           </View>
@@ -36,7 +37,7 @@ export default function Example() {
               clearButtonMode="while-editing"
               onChangeText={name => setForm({ ...form, name })}
               placeholder="John Doe"
-              placeholderTextColor="#6b7280"
+              placeholderTextColor="#888" // Dark gray for a softer placeholder
               style={styles.inputControl}
               value={form.name} />
           </View>
@@ -51,7 +52,7 @@ export default function Example() {
               keyboardType="email-address"
               onChangeText={email => setForm({ ...form, email })}
               placeholder="john@example.com"
-              placeholderTextColor="#6b7280"
+              placeholderTextColor="#888"
               style={styles.inputControl}
               value={form.email} />
           </View>
@@ -64,7 +65,7 @@ export default function Example() {
               clearButtonMode="while-editing"
               onChangeText={password => setForm({ ...form, password })}
               placeholder="********"
-              placeholderTextColor="#6b7280"
+              placeholderTextColor="#888"
               style={styles.inputControl}
               secureTextEntry={true}
               value={form.password} />
@@ -80,7 +81,7 @@ export default function Example() {
                 setForm({ ...form, confirmPassword })
               }
               placeholder="********"
-              placeholderTextColor="#6b7280"
+              placeholderTextColor="#888"
               style={styles.inputControl}
               secureTextEntry={true}
               value={form.confirmPassword} />
@@ -103,7 +104,7 @@ export default function Example() {
         }}>
         <Text style={styles.formFooter}>
           Already have an account?{' '}
-          <Text style={{ textDecorationLine: 'underline' }}>Sign in</Text>
+          <Text style={{ textDecorationLine: 'underline', color: '#F0224E' }}>Sign in</Text>
         </Text>
       </TouchableOpacity>
     </SafeAreaView>
@@ -114,20 +115,20 @@ const styles = StyleSheet.create({
   container: {
     paddingVertical: 24,
     flexGrow: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000', // Background is black for the entire screen
     flexShrink: 1,
     flexBasis: 0,
   },
   title: {
     fontSize: 31,
     fontWeight: '700',
-    color: '#1D2A32',
+    color: '#fff', // White for title on black background
     marginBottom: 6,
   },
   subtitle: {
     fontSize: 15,
     fontWeight: '500',
-    color: '#929292',
+    color: '#aaa', // Light gray for subtitle
   },
   /** Header */
   header: {
@@ -159,7 +160,7 @@ const styles = StyleSheet.create({
     paddingVertical: 24,
     fontSize: 15,
     fontWeight: '600',
-    color: '#222',
+    color: '#fff', // White text for footer
     textAlign: 'center',
     letterSpacing: 0.15,
   },
@@ -170,19 +171,19 @@ const styles = StyleSheet.create({
   inputLabel: {
     fontSize: 17,
     fontWeight: '600',
-    color: '#222',
+    color: '#fff',
     marginBottom: 8,
   },
   inputControl: {
     height: 50,
-    backgroundColor: '#fff',
+    backgroundColor: '#222',
     paddingHorizontal: 16,
     borderRadius: 12,
     fontSize: 15,
     fontWeight: '500',
-    color: '#222',
+    color: '#fff',
     borderWidth: 1,
-    borderColor: '#C9D3DB',
+    borderColor: '#444',
     borderStyle: 'solid',
   },
   /** Button */

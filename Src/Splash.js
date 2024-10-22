@@ -17,7 +17,7 @@ const Splash = () => {
     <View style={styles.container}>
       <Image style={styles.image} source={require('./Assets/logo.png')} />
       <Text style={styles.title}>Welcome to MedCanDetect</Text>
-      <Text style={styles.subtitle}></Text>
+      <Text style={styles.subtitle}>Empowering Early Detection through AI-Powered Precision </Text>
       <Text style={styles.message}>
 
       </Text>
@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#fff',
     marginTop: 10,
+    fontStyle: 'Italic',
     textAlign: 'center',
   },
   message: {
