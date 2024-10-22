@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { auth } from '../Firebase/FirebaseConfig';
 
-const Login = () => {
+const SignIn = () => {
   const [form, setForm] = useState({
     email: '',
     password: '',
@@ -15,7 +15,7 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, form.email.trim(), form.password);
-      navigation.navigate('AppNavigator');
+      navigation.navigate('Home');
     } catch (err) {
       alert(err.message);
     }
@@ -26,10 +26,10 @@ const Login = () => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#000' }}>
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.title}>Welcome back!</Text>
+          <Text style={styles.title}>Welcome </Text>
           <Text style={styles.subtitle}>Sign in to your account</Text>
         </View>
 
@@ -43,7 +43,7 @@ const Login = () => {
               keyboardType="email-address"
               onChangeText={email => setForm({ ...form, email })}
               placeholder="123@example.com"
-              placeholderTextColor="#6b7280"
+              placeholderTextColor="#888"
               style={styles.inputControl}
               value={form.email}
             />
@@ -56,7 +56,7 @@ const Login = () => {
               clearButtonMode="while-editing"
               onChangeText={password => setForm({ ...form, password })}
               placeholder="********"
-              placeholderTextColor="#6b7280"
+              placeholderTextColor="#888"
               style={styles.inputControl}
               secureTextEntry={true}
               value={form.password}
@@ -74,14 +74,14 @@ const Login = () => {
           <TouchableOpacity onPress={handleResetPassword}>
             <Text style={styles.formFooter}>
               Forgot Password?{' '}
-              <Text style={{ textDecorationLine: 'underline' }}>Reset</Text>
+              <Text style={styles.linkText}>Reset</Text>
             </Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
             <Text style={styles.formFooter}>
               Don't have an account?{' '}
-              <Text style={{ textDecorationLine: 'underline' }}>Sign up</Text>
+              <Text style={styles.linkText}>Sign up</Text>
             </Text>
           </TouchableOpacity>
         </View>
@@ -103,14 +103,14 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#1d1d1d',
+    color: '#fff', // White text for the title on black background
     marginBottom: 6,
     textAlign: 'center',
   },
   subtitle: {
     fontSize: 15,
     fontWeight: '500',
-    color: '#929292',
+    color: '#ccc', // Light gray subtitle
     textAlign: 'center',
   },
   form: {
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
   formFooter: {
     fontSize: 15,
     fontWeight: '500',
-    color: '#222',
+    color: '#fff', // White text for footer links
     textAlign: 'center',
   },
   input: {
@@ -131,17 +131,17 @@ const styles = StyleSheet.create({
   inputLabel: {
     fontSize: 17,
     fontWeight: '600',
-    color: '#222',
+    color: '#fff', // White text for input labels
     marginBottom: 8,
   },
   inputControl: {
     height: 60,
-    backgroundColor: '#f1f5f9',
+    backgroundColor: '#1e1e1e', // Dark gray background for inputs
     paddingHorizontal: 16,
     borderRadius: 15,
     fontSize: 15,
     fontWeight: '500',
-    color: '#222',
+    color: '#fff', // White text for input
   },
   btn: {
     flexDirection: 'row',
@@ -152,15 +152,19 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 16,
     borderWidth: 1,
-    backgroundColor: '#3d9d75',
-    borderColor: '#3d9d75',
+    backgroundColor: '#F0224E', // Red button color
+    borderColor: '#F0224E',
   },
   btnText: {
     fontSize: 17,
     lineHeight: 24,
     fontWeight: '600',
-    color: '#fff',
+    color: '#fff', // White text for button
+  },
+  linkText: {
+    textDecorationLine: 'underline',
+    color: '#F0224E', // Red link text for actions
   },
 });
 
-export default Login;
+export default SignIn;

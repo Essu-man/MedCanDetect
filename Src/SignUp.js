@@ -116,7 +116,7 @@ export default function Example() {
         </View>
       </KeyboardAwareScrollView>
 
-      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+      <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
         <Text style={styles.formFooter}>
           Already have an account?{' '}
           <Text style={{ textDecorationLine: 'underline', color: '#F0224E' }}>Sign in</Text>
