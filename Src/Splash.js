@@ -6,7 +6,7 @@ const Splash = () => {
   const navigation = useNavigation();
 
   const handleLogin = () => {
-    navigation.navigate('Login');
+    navigation.navigate('SignIn');
   };
 
   const handleSignUp = () => {
@@ -17,7 +17,7 @@ const Splash = () => {
     <View style={styles.container}>
       <Image style={styles.image} source={require('./Assets/logo.png')} />
       <Text style={styles.title}>Welcome to MedCanDetect</Text>
-      <Text style={styles.subtitle}>Empowering Early Detection through AI-Powered Precision </Text>
+      <Text style={styles.subtitle}>Empowering Early Detection through AI-Powered Precision</Text>
       <Text style={styles.message}>
 
       </Text>
