@@ -1,7 +1,10 @@
+import { useNavigation } from '@react-navigation/native'; // Added useNavigation
+import { createUserWithEmailAndPassword } from 'firebase/auth'; // Import from Firebase
 import React, { useState } from 'react';
-import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View, } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import FeatherIcon from 'react-native-vector-icons/Feather';
+import { auth } from '../Firebase/FirebaseConfig'; // Adjust the path if needed
 
 export default function Example() {
   const [form, setForm] = useState({
@@ -11,6 +14,22 @@ export default function Example() {
     confirmPassword: '',
   });
 
+  const navigation = useNavigation();
+
+  const handleSignup = async () => {
+    if (form.password !== form.confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+    try {
+      await createUserWithEmailAndPassword(auth, form.email.trim(), form.password);
+      alert("Account created successfully 🎉");
+      navigation.navigate('Login'); // Navigate to Login after successful signup
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#000' }}>
       <KeyboardAwareScrollView style={styles.container}>
@@ -19,7 +38,9 @@ export default function Example() {
             <FeatherIcon
               color="#fff"
               name="chevron-left"
-              size={30} />
+              size={30}
+              onPress={() => navigation.goBack()} // Go back to previous screen
+            />
           </View>
 
           <Text style={styles.title}>Let's Get Started!</Text>
@@ -37,7 +58,7 @@ export default function Example() {
               clearButtonMode="while-editing"
               onChangeText={name => setForm({ ...form, name })}
               placeholder="John Doe"
-              placeholderTextColor="#888" // Dark gray for a softer placeholder
+              placeholderTextColor="#888"
               style={styles.inputControl}
               value={form.name} />
           </View>
@@ -77,9 +98,7 @@ export default function Example() {
             <TextInput
               autoCorrect={false}
               clearButtonMode="while-editing"
-              onChangeText={confirmPassword =>
-                setForm({ ...form, confirmPassword })
-              }
+              onChangeText={confirmPassword => setForm({ ...form, confirmPassword })}
               placeholder="********"
               placeholderTextColor="#888"
               style={styles.inputControl}
@@ -88,8 +107,7 @@ export default function Example() {
           </View>
 
           <View style={styles.formAction}>
-            <TouchableOpacity
-              onPress={() => {navigation.navigate('Splash') }}>
+            <TouchableOpacity onPress={handleSignup}>
               <View style={styles.btn}>
                 <Text style={styles.btnText}>Get Started</Text>
               </View>
@@ -98,10 +116,7 @@ export default function Example() {
         </View>
       </KeyboardAwareScrollView>
 
-      <TouchableOpacity
-        onPress={() => {
-          // handle link
-        }}>
+      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
         <Text style={styles.formFooter}>
           Already have an account?{' '}
           <Text style={{ textDecorationLine: 'underline', color: '#F0224E' }}>Sign in</Text>
@@ -115,22 +130,21 @@ const styles = StyleSheet.create({
   container: {
     paddingVertical: 24,
     flexGrow: 1,
-    backgroundColor: '#000', // Background is black for the entire screen
+    backgroundColor: '#000',
     flexShrink: 1,
     flexBasis: 0,
   },
   title: {
     fontSize: 31,
     fontWeight: '700',
-    color: '#fff', // White for title on black background
+    color: '#fff',
     marginBottom: 6,
   },
   subtitle: {
     fontSize: 15,
     fontWeight: '500',
-    color: '#aaa', // Light gray for subtitle
+    color: '#aaa',
   },
-  /** Header */
   header: {
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
@@ -144,7 +158,6 @@ const styles = StyleSheet.create({
     marginLeft: -16,
     marginBottom: 6,
   },
-  /** Form */
   form: {
     marginBottom: 24,
     paddingHorizontal: 24,
@@ -160,11 +173,10 @@ const styles = StyleSheet.create({
     paddingVertical: 24,
     fontSize: 15,
     fontWeight: '600',
-    color: '#fff', // White text for footer
+    color: '#fff',
     textAlign: 'center',
     letterSpacing: 0.15,
   },
-  /** Input */
   input: {
     marginBottom: 16,
   },
@@ -184,9 +196,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     borderWidth: 1,
     borderColor: '#444',
-    borderStyle: 'solid',
   },
-  /** Button */
   btn: {
     flexDirection: 'row',
     alignItems: 'center',
