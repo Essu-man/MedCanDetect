@@ -15,7 +15,7 @@ const Splash = () => {
 
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={require('./Assets/tits.jpg')} />
+      <Image style={styles.image} source={require('./Assets/MedCanDetectLogo.png')} />
       <Text style={styles.title}>Welcome to MedCanDetect</Text>
       <Text style={styles.subtitle}></Text>
       <Text style={styles.message}>
@@ -37,26 +37,26 @@ const Splash = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
   },
   image: {
-    width: 250,
-    height: 250,
+    width: 300,
+    height: 350,
     marginBottom: 55,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#000',
+    color: '#fff',
     marginTop: 20,
     textAlign: 'center',
   },
   subtitle: {
     fontSize: 18,
-    color: '#000',
+    color: '#fff',
     marginTop: 10,
     textAlign: 'center',
   },
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   button: {
-    backgroundColor: '#5AE4A8',
+    backgroundColor: '#F0224E',
     borderRadius: 15,
     padding: 20,
     marginHorizontal: 10,
