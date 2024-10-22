@@ -17,7 +17,7 @@ export default function Example() {
         <View style={styles.header}>
           <View style={styles.headerBack}>
             <FeatherIcon
-              color="#fff" // Make icon white for contrast on black background
+              color="#fff"
               name="chevron-left"
               size={30} />
           </View>
