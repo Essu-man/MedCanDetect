@@ -14,7 +14,7 @@ const Home = () => {
       <View style={styles.content}>
         <Image
           style={styles.image}
-          source={{ uri: 'https://via.placeholder.com/150' }} // Example image
+          source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/medcandetect.appspot.com/o/loguoo.jpg?alt=media&token=1c9fca40-4e24-4d2f-a231-1c84ef47b8c4' }}
         />
 
         <TouchableOpacity
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   button: {
-    backgroundColor: '#007BFF',
+    backgroundColor: '#F0224E',
     paddingVertical: 12,
     paddingHorizontal: 30,
     borderRadius: 8,
