@@ -2,6 +2,9 @@ import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
+import Book from '../Components/Book';
+import Detect from '../Components/Detect';
+import Events from '../Components/Events';
 import Settings from '../Components/Settings';
 import Home from '../Home';
 
@@ -19,6 +22,15 @@ const TabNavigator = () => {
             case 'Home':
               iconName = focused ? 'home' : 'home-outline';
               break;
+            case 'Detect':
+              iconName = focused ? 'search' : 'search-outline';
+              break;
+            case 'Book':
+              iconName = focused ? 'book' : 'book-outline';
+              break;
+            case 'Events':
+              iconName = focused ? 'calendar' : 'calendar-outline';
+              break;
             case 'Settings':
               iconName = focused ? 'settings' : 'settings-outline';
               break;
@@ -31,7 +43,7 @@ const TabNavigator = () => {
         tabBarActiveTintColor: '#F0224E',
         tabBarInactiveTintColor: 'gray',
         tabBarStyle: {
-          backgroundColor: '#1a1a1a', // Shade of black
+          backgroundColor: '#1a1a1a',
           paddingBottom: 5,
           height: 80,
           borderTopLeftRadius: 0,
@@ -41,6 +53,9 @@ const TabNavigator = () => {
       })}
     >
       <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Detect" component={Detect} />
+      <Tab.Screen name="Book" component={Book} />
+      <Tab.Screen name="Events" component={Events} />
       <Tab.Screen name="Settings" component={Settings} />
     </Tab.Navigator>
   );
