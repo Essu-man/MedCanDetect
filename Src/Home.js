@@ -1,69 +1,60 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 
 const Home = () => {
-  const navigation = useNavigation();
-
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Welcome to the App!</Text>
-      </View>
-
-      <View style={styles.content}>
+    <View style={styles.container}>
+      {/* Profile section */}
+      <View style={styles.profileSection}>
         <Image
-          style={styles.image}
           source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/medcandetect.appspot.com/o/loguoo.jpg?alt=media&token=1c9fca40-4e24-4d2f-a231-1c84ef47b8c4' }}
+          style={styles.profilePicture}
         />
-
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate('Settings')}
-        >
-          <Text style={styles.buttonText}>Go to Settings</Text>
-        </TouchableOpacity>
+        <Text style={styles.profileName}>Hi Joshua</Text>
       </View>
-    </SafeAreaView>
+
+      {/* Card section */}
+      <View style={styles.card}>
+        <Text style={styles.cardText}>Breast Cancer Symptoms</Text>
+      </View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 20,
     backgroundColor: '#000',
-    justifyContent: 'center',
   },
-  header: {
-    marginBottom: 40,
+  profileSection: {
+    flexDirection: 'row',
     alignItems: 'center',
+    marginBottom: 20,
   },
-  title: {
-    fontSize: 24,
+  profilePicture: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+  },
+  profileName: {
+    marginLeft: 15,
+    fontSize: 18,
     fontWeight: 'bold',
-    color: '#333',
   },
-  content: {
-    alignItems: 'center',
-    justifyContent: 'center',
+  card: {
+    backgroundColor: '#000',
+    borderRadius: 10,
+    padding: 15,
+    shadowColor: '#888',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 3,
   },
-  image: {
-    width: 150,
-    height: 150,
-    borderRadius: 75,
-    marginBottom: 30,
-  },
-  button: {
-    backgroundColor: '#F0224E',
-    paddingVertical: 12,
-    paddingHorizontal: 30,
-    borderRadius: 8,
-    marginVertical: 10,
-  },
-  buttonText: {
-    color: '#fff',
+  cardText: {
     fontSize: 16,
-    fontWeight: '600',
+    color: '#fff',
   },
 });
 
