@@ -15,7 +15,7 @@ const SignIn = () => {
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, form.email.trim(), form.password);
-      navigation.navigate('Home');
+      navigation.navigate('AppNavigator');
     } catch (err) {
       alert(err.message);
     }
@@ -103,14 +103,14 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#fff', // White text for the title on black background
+    color: '#fff',
     marginBottom: 6,
     textAlign: 'center',
   },
   subtitle: {
     fontSize: 15,
     fontWeight: '500',
-    color: '#ccc', // Light gray subtitle
+    color: '#ccc',
     textAlign: 'center',
   },
   form: {

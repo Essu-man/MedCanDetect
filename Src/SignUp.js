@@ -1,10 +1,10 @@
-import { useNavigation } from '@react-navigation/native'; // Added useNavigation
-import { createUserWithEmailAndPassword } from 'firebase/auth'; // Import from Firebase
+import { useNavigation } from '@react-navigation/native';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import FeatherIcon from 'react-native-vector-icons/Feather';
-import { auth } from '../Firebase/FirebaseConfig'; // Adjust the path if needed
+import { auth } from '../Firebase/FirebaseConfig';
 
 export default function Example() {
   const [form, setForm] = useState({
@@ -24,7 +24,7 @@ export default function Example() {
     try {
       await createUserWithEmailAndPassword(auth, form.email.trim(), form.password);
       alert("Account created successfully 🎉");
-      navigation.navigate('Login'); // Navigate to Login after successful signup
+      navigation.navigate('AppNavigator');
     } catch (error) {
       alert(error.message);
     }
@@ -39,7 +39,7 @@ export default function Example() {
               color="#fff"
               name="chevron-left"
               size={30}
-              onPress={() => navigation.goBack()} // Go back to previous screen
+              onPress={() => navigation.goBack()}
             />
           </View>
 
@@ -116,7 +116,7 @@ export default function Example() {
         </View>
       </KeyboardAwareScrollView>
 
-      <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
         <Text style={styles.formFooter}>
           Already have an account?{' '}
           <Text style={{ textDecorationLine: 'underline', color: '#F0224E' }}>Sign in</Text>

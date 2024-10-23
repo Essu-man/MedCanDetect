@@ -40,10 +40,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000',
     justifyContent: 'center',
-    alignItems: 'center',
   },
   header: {
     marginBottom: 40,
+    alignItems: 'center',
   },
   title: {
     fontSize: 24,
@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
   },
   content: {
     alignItems: 'center',
+    justifyContent: 'center',
   },
   image: {
     width: 150,

@@ -2,8 +2,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import Home from '../Components/Home';
 import Settings from '../Components/Settings';
+import Home from '../Home';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -28,13 +28,14 @@ const TabNavigator = () => {
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: '#3d9d75',
+        tabBarActiveTintColor: '#F0224E',
         tabBarInactiveTintColor: 'gray',
         tabBarStyle: {
+          backgroundColor: '#1a1a1a', // Shade of black
           paddingBottom: 5,
           height: 80,
-          borderTopLeftRadius: 50,
-          borderTopRightRadius: 50,
+          borderTopLeftRadius: 0,
+          borderTopRightRadius: 0,
         },
         headerShown: false,
       })}
@@ -50,9 +51,9 @@ const AppNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: '#3d9d75',
+          backgroundColor: '#F0224E',
         },
-        headerTintColor: '#fff',
+        headerTintColor: '#000',
         headerTitleStyle: {
           fontWeight: 'bold',
         },
