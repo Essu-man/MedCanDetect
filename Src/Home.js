@@ -1,22 +1,24 @@
+import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const Home = () => {
   return (
     <View style={styles.container}>
-
       {/* Large wrap section */}
       <View style={styles.wrapSection}>
         <Text style={styles.wrapText}>Welcome to MedCanDetect</Text>
         <Text style={styles.profileName}>Hi, Joshua</Text>
       </View>
 
-      {/* Card row 1 */}
+      {/* Card row 1 with icons */}
       <View style={styles.cardRow}>
         <TouchableOpacity style={[styles.card, styles.detectCard]}>
+          <Ionicons name="eye" size={24} color="#fff" />
           <Text style={styles.cardText}>Detect</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.card, styles.eventsCard]}>
+          <Ionicons name="calendar" size={24} color="#fff" />
           <Text style={styles.cardText}>Events</Text>
         </TouchableOpacity>
       </View>
@@ -24,6 +26,10 @@ const Home = () => {
       {/* Card row 2 */}
       <View style={styles.cardRow}>
         <TouchableOpacity style={[styles.card, styles.symptomsCard]}>
+          <Image
+            source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/medcandetect.appspot.com/o/loguoo.jpg?alt=media&token=1c9fca40-4e24-4d2f-a231-1c84ef47b8c4' }}
+            style={styles.symptomsImage}
+          />
           <Text style={styles.cardText}>Breast Cancer Symptoms</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.card, styles.appointmentCard]}>
@@ -41,7 +47,7 @@ const styles = StyleSheet.create({
     paddingTop: 40,
   },
   wrapSection: {
-    backgroundColor: '#F0224E',
+    backgroundColor: '#f02267',
     padding: 60,
     borderBottomLeftRadius: 50,
     borderBottomRightRadius: 50,
@@ -56,13 +62,13 @@ const styles = StyleSheet.create({
   profileName: {
     fontSize: 18,
     color: '#fff',
-    marginTop: 10, // Space below the "Welcome" text
+    marginTop: 10,
   },
   cardRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 20,
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
   },
   card: {
     flex: 1,
@@ -85,8 +91,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#F0224E',
   },
   symptomsCard: {
-    backgroundColor: '#F0224E',
-    padding:50,
+    backgroundColor: 'transparent', // Transparent background for symptoms card
+    padding: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   appointmentCard: {
     backgroundColor: '#F0224E', // Pink for Book an Appointment
@@ -95,6 +103,17 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: '#fff', // White text for cards
+  },
+  symptomsImage: {
+    width: '100%',
+    height: 100,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    borderRadius: 10,
+    opacity: 0.5, // Adjust opacity as needed
   },
 });
 

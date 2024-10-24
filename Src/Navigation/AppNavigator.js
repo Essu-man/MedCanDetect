@@ -37,7 +37,7 @@ const TabNavigator = () => {
         tabBarInactiveTintColor: 'gray',
         tabBarStyle: {
           backgroundColor: '#1a1a1a',
-          paddingBottom: 15,
+          paddingBottom: 5,
           height: 60,
           position: 'absolute',  // Floating
           bottom: 250,
@@ -50,7 +50,7 @@ const TabNavigator = () => {
           borderTopRightRadius: 40,
           borderBottomLeftRadius: 40,
           borderBottomRightRadius: 40,
-          elevation: 10,
+          elevation: 20,
           shadowColor: '#000',
           shadowOpacity: 0.1,
           shadowOffset: { width: 0, height: 10 },
