@@ -5,13 +5,10 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 const Home = () => {
   return (
     <View style={styles.container}>
-      {/* Large wrap section */}
       <View style={styles.wrapSection}>
         <Text style={styles.wrapText}>Welcome to MedCanDetect</Text>
         <Text style={styles.profileName}>Hi, Joshua</Text>
       </View>
-
-      {/* Card row 1 with icons */}
       <View style={styles.cardRow}>
         <TouchableOpacity style={[styles.card, styles.detectCard]}>
           <Ionicons name="eye" size={24} color="#fff" />
@@ -32,9 +29,6 @@ const Home = () => {
           />
           <Text style={styles.cardText}>Breast Cancer Symptoms</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.card, styles.appointmentCard]}>
-          <Text style={styles.cardText}>Book an Appointment</Text>
-        </TouchableOpacity>
       </View>
     </View>
   );
@@ -47,7 +41,7 @@ const styles = StyleSheet.create({
     paddingTop: 40,
   },
   wrapSection: {
-    backgroundColor: '#f02267',
+    backgroundColor: '#888',
     padding: 60,
     borderBottomLeftRadius: 50,
     borderBottomRightRadius: 50,
@@ -67,8 +61,8 @@ const styles = StyleSheet.create({
   cardRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 20,
-    paddingHorizontal: 20,
+    marginBottom: 30,
+    paddingHorizontal: -10,
   },
   card: {
     flex: 1,

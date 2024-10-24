@@ -118,7 +118,7 @@ export default function Example() {
 
       <TouchableOpacity onPress={() => navigation.navigate('Login')}>
         <Text style={styles.formFooter}>
-          Already have an account?{' '}
+          Already have an account?{'SignIn '}
           <Text style={{ textDecorationLine: 'underline', color: '#F0224E' }}>Sign in</Text>
         </Text>
       </TouchableOpacity>
