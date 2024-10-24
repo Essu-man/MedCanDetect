@@ -3,8 +3,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import Book from '../Components/Book';
-import Detect from '../Components/Detect';
-import Events from '../Components/Events';
 import Settings from '../Components/Settings';
 import Home from '../Home';
 
@@ -22,15 +20,10 @@ const TabNavigator = () => {
             case 'Home':
               iconName = focused ? 'home' : 'home-outline';
               break;
-            case 'Detect':
-              iconName = focused ? 'search' : 'search-outline';
-              break;
             case 'Book':
               iconName = focused ? 'book' : 'book-outline';
               break;
-            case 'Events':
-              iconName = focused ? 'calendar' : 'calendar-outline';
-              break;
+
             case 'Settings':
               iconName = focused ? 'settings' : 'settings-outline';
               break;
@@ -44,18 +37,33 @@ const TabNavigator = () => {
         tabBarInactiveTintColor: 'gray',
         tabBarStyle: {
           backgroundColor: '#1a1a1a',
-          paddingBottom: 5,
-          height: 80,
-          borderTopLeftRadius: 0,
-          borderTopRightRadius: 0,
+          paddingBottom: 15,
+          height: 60,
+          position: 'absolute',  // Floating
+          bottom: 250,
+          bottom: 25,            // Lower the tab bar a bit more to the middle-bottom
+          alignSelf: 'center',           // Move it higher towards the middle
+          left: 'auto',          // Center it horizontally
+          right: 'auto',         // Center it horizontally
+          width: 280,
+          borderTopLeftRadius: 40,
+          borderTopRightRadius: 40,
+          borderBottomLeftRadius: 40,
+          borderBottomRightRadius: 40,
+          elevation: 10,
+          shadowColor: '#000',
+          shadowOpacity: 0.1,
+          shadowOffset: { width: 0, height: 10 },
+          shadowRadius: 10,
+          borderTopWidth: 0,
         },
+
+
         headerShown: false,
       })}
     >
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Detect" component={Detect} />
       <Tab.Screen name="Book" component={Book} />
-      <Tab.Screen name="Events" component={Events} />
       <Tab.Screen name="Settings" component={Settings} />
     </Tab.Navigator>
   );
